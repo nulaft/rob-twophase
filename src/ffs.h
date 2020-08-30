@@ -6,7 +6,7 @@
     unsigned long index;
     if (_BitScanForward64(&index, i))
       return index;
-    return 0;
+    return -1;
   }
   
   inline int find_first_set(unsigned long i)
@@ -14,7 +14,7 @@
     unsigned long index;
     if (_BitScanForward(&index, i))
       return index;
-    return 0;
+    return -1;
   }
 
   inline int find_first_set(unsigned int i)
