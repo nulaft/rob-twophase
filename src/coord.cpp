@@ -2,7 +2,7 @@
 
 #include <algorithm>
 #include <bitset>
-#include <cstring>
+#include "ffs.h"
 
 #include "cubie.h"
 
@@ -68,8 +68,8 @@ namespace coord {
   }
 
   // `mask` indicates which 4 edges to compute the coordinate for
-  int get_combperm(const int cubies[], int len, int mask) {
-    int min_cubie = ffs(mask) - 1;
+  int get_combperm(const int cubies[], int len, unsigned int mask) {
+    int min_cubie = find_first_set(mask);
 
     int comb = 0;
     int perm = 0;
@@ -230,7 +230,7 @@ namespace coord {
 
       if (phase2) { // UDEDGES2 is only defined for phase 2 moves
         for (move::mask moves = move::p2mask; moves; moves &= moves - 1) {
-          int m = ffsll(moves) - 1;
+          int m = find_first_set(moves);
           mul(c1, move::cubes[m], c2);
           move_coord[coord][m] = get_coord(c2);
         }

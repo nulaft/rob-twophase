@@ -2,7 +2,7 @@
 
 #include <bitset>
 #include <iostream>
-#include <cstring>
+#include "ffs.h"
 
 namespace prun {
   const std::string SAVE = "twophase"
@@ -251,7 +251,7 @@ namespace prun {
             count++;
 
             for (move::mask moves = move::p2mask; moves; moves &= moves - 1) {
-              int m = ffsll(moves) - 1;
+              int m = find_first_set(moves);
 
               int dist1 = dist + 1;
               #ifdef QT
@@ -309,7 +309,7 @@ namespace prun {
             int slice = coord::slice2_to_slice(slice2);
 
             for (move::mask moves = move::p2mask; moves; moves &= moves - 1) {
-              int m = ffsll(moves) - 1;
+              int m = find_first_set(moves);
 
               int dist1 = dist + 1;
               #ifdef QT

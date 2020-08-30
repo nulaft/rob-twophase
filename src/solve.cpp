@@ -1,7 +1,7 @@
 #include "solve.h"
 
 #include <algorithm>
-#include <cstring>
+#include "ffs.h"
 #include <thread>
 #include "prun.h"
 #include "sym.h"
@@ -88,7 +88,7 @@ namespace solve {
     depth++;
     togo--;
     while (next) {
-      int m = ffsll(next) -  1; // get rightmost move index (`ffsll()` uses 1-based indexing)
+      int m = find_first_set(next);
       next &= next - 1;
 
       int flip1 = coord::move_flip[flip][m];
@@ -135,7 +135,7 @@ namespace solve {
     }
 
     while (next) {
-      int m = ffsll(next) -  1; // get rightmost move index (`ffsll()` uses 1-based indexing)
+      int m = find_first_set(next);
       next &= next - 1;
 
       int slice1 = coord::move_edges4[slice][m];
