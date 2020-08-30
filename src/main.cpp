@@ -1,6 +1,10 @@
 #include <algorithm>
 #include <fstream>
-#include <getopt.h>
+#ifdef _WIN32
+  #include "getopt.h"
+#else
+  #include <getopt.h>
+#endif
 #include <iostream>
 #include <vector>
 #include <numeric>
