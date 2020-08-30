@@ -32,8 +32,8 @@
 *.app
 
 # Project specific
-twophase*
-tables
+twophase
+twophase*.tbl
 .depend
 .idea
 CMakeLists.txt
