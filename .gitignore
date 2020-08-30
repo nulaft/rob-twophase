@@ -33,10 +33,10 @@
 
 # Project specific
 twophase*
-tables
 .depend
 .idea
 CMakeLists.txt
 cmake-build-debug
 .vscode/
 bla/
+build/
